@@ -46,8 +46,10 @@ module.exports = {
     devServer: {
         port: 3000,
         open: true,
-        injectHot: true
+        hot: true,
+        overlay: true
     },
+    target: process.env.NODE_ENV === 'development' ? 'web' : 'browserslist',
     plugins: [
         new CleanWebpackPlugin(),
         new HTMLWebpackPlugin({
