@@ -32,7 +32,7 @@ function createCell (row, state) {
         const width = getWidth(state.colState, col)
         const id = `${row}:${col}`
         const data = state.dataState[id] || ''
-        const styles = toInlineStyles({ ...state.stylesState[id], ...defaultStyles })
+        const styles = toInlineStyles({ ...defaultStyles, ...state.stylesState[id] })
 
         return `
             <div 
