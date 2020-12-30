@@ -3,12 +3,16 @@
   "env": {
     "es6": true,
     "browser": true,
-    "node": true
+    "node": true,
+    "jest/globals": true
   },
   "rules": {
     "indent": ["error", 4, { "SwitchCase": 1 }],
     "quotes": ["error", "single"],
     "no-return-assign": "off"
   },
-  "extends": "standard"
+  "extends": "standard",
+  "plugins": [
+    "jest"
+  ]
 }
