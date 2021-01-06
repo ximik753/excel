@@ -8,7 +8,7 @@ export class Formula extends ExcelComponent {
         super($root, {
             name: 'Formula',
             listeners: ['input', 'keydown'],
-            subscribe: ['currentText'],
+            subscribe: ['currentText', 'dataState'],
             ...options
         })
     }
@@ -31,6 +31,10 @@ export class Formula extends ExcelComponent {
 
     storeChanged ({ currentText }) {
         this.$formula.text(currentText)
+
+        if (!currentText) {
+            this.$formula.text(this.store.getState().currentText)
+        }
     }
 
     onInput (event) {
