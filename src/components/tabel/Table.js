@@ -29,9 +29,6 @@ export class Table extends ExcelComponent {
         this.selectCell(this.$root.find('[data-id="0:0"]'))
 
         this.$on('formula:input', value => {
-            this.selection.current
-                .attr('data-value', value)
-                .text(parse(value))
             this.updateTextInStore(value)
         })
         this.$on('formula:done', () => this.selection.current.focus())
@@ -92,6 +89,10 @@ export class Table extends ExcelComponent {
     }
 
     updateTextInStore (value) {
+        this.selection.current
+            .attr('data-value', value)
+            .text(parse(value))
+
         this.$dispatch(actions.changeText({
             id: this.selection.current.id(),
             value
